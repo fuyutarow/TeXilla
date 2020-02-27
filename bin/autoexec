@@ -16,22 +16,18 @@ fi
 
 INTERVAL=1 #監視間隔, 秒で指定
 last=$(update $1)
+
 echo "Watching... file: $1"
 while true; do
   sleep $INTERVAL
   current=$(update $1)
-  lsof=$(lsof -f -- $1)
   if [ "$last" != "$current" ]; then
     nowdate=$(date '+%Y/%m/%d')
     nowtime=$(date '+%H:%M:%S')
     echo "$nowdate $nowtime : detected update of file: $1"
-    if [ -n "$lsof" ]; then
-      echo "=> Skipping, $1 is opened by other process..."
-    else
-      echo "=> Executing Command : $2"
-      eval $2
-      echo "\nWatching... file: $1"
-    fi
+    echo "=> Executing Command : $2"
+    eval $2
+    echo "\nWatching... file: $1"
     last=$current
   fi
 done
