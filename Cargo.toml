@@ -1,5 +1,5 @@
 [package]
-name = "texla"
+name = "TeXilla"
 version = "0.1.0"
 authors = ["fuyutarow <fuyutarow@gmail.com>"]
 edition = "2018"
