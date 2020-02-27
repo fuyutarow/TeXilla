@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.css"
+        integrity="sha384-9tPv11A+glH/on/wEu99NVwDPwkMQESOocs/ZGXPoIiLE8MU/qkqUcZ3zzL+6DuH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/katex.min.js"
+        integrity="sha384-U8Vrjwb8fuHMt6ewaCy8uqeUXv4oitYACKdB0VziCerzt011iQ/0TqlSlv8MReCm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-beta/dist/contrib/auto-render.min.js"
+        integrity="sha384-aGfk5kvhIq5x1x5YdvCp4upKZYnA8ckafviDpmWEKp4afOZEqOli7gqSnh8I6enH"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <template></template>
+    <script>
+        $(document).ready(function () {
+            renderMathInElement(document.body,
+                {
+                    delimiters: [
+                        {
+                            left: "\\[", right: "\\]", display: true
+                        },
+                        {
+                            left: "$", right: "$", display: false
+                        },
+                    ],
+                    macros: {
+                        "\\RR": "\\mathbb{R}",
+                        "\\set": "\\left\\{#1\\right\\}",
+                        "\\setm": "\\left\\{#1\\ \\middle\\vert\\ #2\\right\\}",
+                        "\\bra": "\\left\\langle#1\\right|",
+                        "\\ket": "\\left|#1\\right\\rangle",
+                        "\\braket": "\\left\\langle#1\\middle|#2\\right\\rangle",
+                        "\\braketm": "\\left\\langle#1\\middle|#2\\middle|#3\\right\\rangle",
+                        "\\cqty": "{\\left\\{#1\\right\\}}",
+                        "\\pqty": "{\\left(#1\\right)}",
+                        "\\bqty": "{\\left[#1\\right]}",
+                        "\\cleft": "\\left\\{#1\\right.",
+                        "\\Eta": "\\mathrm{H}",
+                        "\\Eta": "\\mathrm{H}",
+                        "\\cs": "\\mathrm{c.s.}",
+                        "\\summ": "\\sum_{#1=#2}^{#3}",
+                    }
+                })
+        });
+    </script>
+</body>
+
+</html>
