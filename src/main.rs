@@ -33,13 +33,20 @@ fn main() {
         re_titles.replace_all(
             &format!("\n{}", &contents),
             r#"</div>
-<div id=${title}>
-<span>${title}</span>
+<div id="${title}">
+<h2>${title}</h2>
 "#,
         )
     );
     let re_breaks = regex::Regex::new(r"[\r\n|\n|\r]{2}").unwrap();
-    contents_html = re_breaks.replace_all(&contents_html, "<p></p>").to_string();
+    contents_html = re_breaks
+        .replace_all(&contents_html, "\n<p></p>\n")
+        .to_string();
+
+    let re_links = regex::Regex::new(r"#(?P<title>\S+)\s").unwrap();
+    contents_html = re_links
+        .replace_all(&contents_html, r##"<a href="#${title}">${title}</a>"##)
+        .to_string();
 
     let result = template_html.replace("<template></template>", &contents_html);
 
