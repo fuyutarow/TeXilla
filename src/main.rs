@@ -28,16 +28,18 @@ fn main() {
 
     let re_titles =
         regex::Regex::new(r"[\r\n|\n|\r]#\s(?P<title>[^\r\n|\n|\r]+)[\r\n|\n|\r]").unwrap();
-    let contents_html = format!(
+    let mut contents_html = format!(
         "<div>{}</div>",
         re_titles.replace_all(
-            &contents,
+            &format!("\n{}", &contents),
             r#"</div>
 <div id=${title}>
 <span>${title}</span>
 "#,
         )
     );
+    let re_breaks = regex::Regex::new(r"[\r\n|\n|\r]{2}").unwrap();
+    contents_html = re_breaks.replace_all(&contents_html, "<p></p>").to_string();
 
     let result = template_html.replace("<template></template>", &contents_html);
 
