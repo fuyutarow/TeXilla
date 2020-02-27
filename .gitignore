@@ -1,4 +1,5 @@
 *.tex
+!entry.tex
 *.html
 !template.html
 /target

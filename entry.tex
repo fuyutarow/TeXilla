@@ -1,0 +1,27 @@
+
+# TeXilla
+Hello, world.
+
+# Quadratic programming
+a optimization problem.
+
+\[
+    \begin{aligned}
+        & \text{min} & & c^T x \\
+        & \text{s.t.} & & Ax \leq b_i \\
+        & & & \sum_{i=1}^{n} x_i =1 \\
+        & & & x_j, \; \forall j \in N. \\
+    \end{aligned}
+\]
+
+
+# Regularization: Ridge
+\[
+    \newcommand\argmin{\mathop{\rm arg~min}\limits}
+        \begin{aligned}
+            \boldsymbol{\beta}_{\text{ridge}}
+                & = \argmin_{\boldsymbol{\beta} \in \mathcal{R^p}}
+                    \biggl[ ||\boldsymbol{y}-\boldsymbol{X\beta}||^2 + \lambda ||\boldsymbol{\beta}||^2 \biggr] \\
+                & = (\boldsymbol{X}^T\boldsymbol{X} + \lambda\boldsymbol{I_{p+1}})^{-1}\boldsymbol{X}^T\boldsymbol{y}
+    \end{aligned}
+\]

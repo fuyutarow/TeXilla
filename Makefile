@@ -1,4 +1,4 @@
-tex?="entry.tex"
+tex?=entry.tex
 port?=8080
 
 build:
