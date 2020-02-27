@@ -1,11 +1,11 @@
 # TeXilla
 
-# Requirements
+## Requirements
 - npm
 
-# Usage
+## Usage
 
-## Edit
+### Edit
 ```sh
 make watch
 ```
@@ -17,12 +17,12 @@ make watch tex=mybook.tex
 ```
 and edit mybook.tex.
 
-## Serve (hot-reloads)
+### Serve (hot-reloads)
 ```sh
 make serve
 make serve port=8000
 ```
 
-# Development
-## Dependency
+## Development
+### Dependency
 - Rust(Cargo)
